@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.source_files = "EaseUI/**/*.{h}"
   spec.platform     = :ios, '6.0'
   spec.requires_arc = true
-  spec.frameworks = 'Foundation', 'UIKit', 'MapKit', 'ImageIO', 'CoreLocation', 'Security', 'MobileCoreServices',  'SystemConfiguration', 'AddressBook', 'CFNetwork', 'CoreGraphics'
+  #spec.frameworks = 'Foundation', 'UIKit', 'MapKit', 'ImageIO', 'CoreLocation', 'Security', 'MobileCoreServices',  'SystemConfiguration', 'AddressBook', 'CFNetwork', 'CoreGraphics'
   #spec.libraries    = 'iconv', 'xml2', 'z', 'resolv', 'stdc++', 'sqlite3', 'stdc++.6'
   spec.resource     = 'EaseUI/resources/EaseUIResource.bundle'
     spec.vendored_libraries = ['EaseUI/lib/libEaseUI.a']
