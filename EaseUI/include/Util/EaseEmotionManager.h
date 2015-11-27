@@ -58,6 +58,11 @@ typedef NS_ENUM(NSUInteger, EMEmotionType) {
 - (id)initWithType:(EMEmotionType)Type
         emotionRow:(NSInteger)emotionRow
         emotionCol:(NSInteger)emotionCol
+          emotions:(NSArray*)emotions;
+
+- (id)initWithType:(EMEmotionType)Type
+        emotionRow:(NSInteger)emotionRow
+        emotionCol:(NSInteger)emotionCol
           emotions:(NSArray*)emotions
           tagImage:(UIImage*)tagImage;
 

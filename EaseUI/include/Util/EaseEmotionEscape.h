@@ -13,6 +13,12 @@
 
 + (EaseEmotionEscape *)sharedInstance;
 
++ (NSMutableAttributedString *) attributtedStringFromText:(NSString *) aInputText;
+
++ (NSAttributedString *) attStringFromTextForChatting:(NSString *) aInputText;
+
++ (NSAttributedString *) attStringFromTextForInputView:(NSString *) aInputText;
+
 - (NSAttributedString *) attStringFromTextForChatting:(NSString *) aInputText textFont:(UIFont*)font;
 
 - (NSAttributedString *) attStringFromTextForInputView:(NSString *) aInputText textFont:(UIFont*)font;
