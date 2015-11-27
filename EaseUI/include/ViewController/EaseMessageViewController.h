@@ -28,14 +28,25 @@
 
 @optional
 
-/**
- *  获取消息自定义cell
+/*!
+ @method
+ @brief 获取消息自定义cell
+ @discussion 用户根据messageModel判断是否显示自定义cell,返回nil显示默认cell,否则显示用户自定义cell
+ @param tableView 当前消息视图的tableView
+ @param messageModel 消息模型
+ @result 返回用户自定义cell
  */
 - (UITableViewCell *)messageViewController:(UITableView *)tableView
                        cellForMessageModel:(id<IMessageModel>)messageModel;
 
-/**
- *  消息cell高度
+/*!
+ @method
+ @brief 获取消息cell高度
+ @discussion 用户根据messageModel判断,是否自定义显示cell的高度
+ @param viewController 当前消息视图
+ @param messageModel 消息模型
+ @param cellWidth 视图宽度
+ @result 返回用户自定义cell
  */
 - (CGFloat)messageViewController:(EaseMessageViewController *)viewController
            heightForMessageModel:(id<IMessageModel>)messageModel
@@ -66,8 +77,13 @@
 - (BOOL)messageViewController:(EaseMessageViewController *)viewController
         didSelectMessageModel:(id<IMessageModel>)messageModel;
 
-/**
- *  选中消息头像
+/*!
+ @method
+ @brief 点击消息头像
+ @discussion 获取用户点击头像回调
+ @param viewController 当前消息视图
+ @param messageModel 消息模型
+ @result
  */
 - (void)messageViewController:(EaseMessageViewController *)viewController
     didSelectAvatarMessageModel:(id<IMessageModel>)messageModel;
@@ -79,13 +95,18 @@
             didSelectMoreView:(EaseChatBarMoreView *)moreView
                       AtIndex:(NSInteger)index;
 
-/**
- * 底部录音功能按钮
+/*!
+ @method
+ @brief 底部录音功能按钮状态回调
+ @discussion 获取底部录音功能按钮状态回调,根据EaseRecordViewType,用户自定义处理UI的逻辑
+ @param viewController 当前消息视图
+ @param recordView 录音视图
+ @param type 录音按钮当前状态
+ @result
  */
 - (void)messageViewController:(EaseMessageViewController *)viewController
               didSelectRecordView:(UIView *)recordView
                 withEvenType:(EaseRecordViewType)type;
-
 @end
 
 
@@ -120,20 +141,35 @@
           loadMessageFromTimestamp:(long long)timestamp
                              count:(NSInteger)count;
 
-/**
- *  将EMMessage类型转换为符合<IMessageModel>协议的类型
+/*!
+ @method
+ @brief 将EMMessage类型转换为符合<IMessageModel>协议的类型
+ @discussion 将EMMessage类型转换为符合<IMessageModel>协议的类型,设置用户信息,消息显示用户昵称和头像
+ @param viewController 当前消息视图
+ @param EMMessage 聊天消息对象类型
+ @result 返回<IMessageModel>协议的类型
  */
 - (id<IMessageModel>)messageViewController:(EaseMessageViewController *)viewController
                            modelForMessage:(EMMessage *)message;
 
-/**
- *  是否允许长按
+/*!
+ @method
+ @brief 是否允许长按
+ @discussion 获取是否允许长按的回调,默认是NO
+ @param viewController 当前消息视图
+ @param indexPath 长按消息对应的indexPath
+ @result
  */
 - (BOOL)messageViewController:(EaseMessageViewController *)viewController
    canLongPressRowAtIndexPath:(NSIndexPath *)indexPath;
 
-/**
- *  触发长按手势
+/*!
+ @method
+ @brief 触发长按手势
+ @discussion 获取触发长按手势的回调,默认是NO
+ @param viewController 当前消息视图
+ @param indexPath 长按消息对应的indexPath
+ @result
  */
 - (BOOL)messageViewController:(EaseMessageViewController *)viewController
    didLongPressRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -152,6 +188,29 @@
 - (BOOL)messageViewController:(EaseMessageViewController *)viewController
 shouldSendHasReadAckForMessage:(EMMessage *)message
                          read:(BOOL)read;
+
+/**
+ * 判断消息是否为表情消息
+ */
+- (BOOL)isEmotionMessageFormessageViewController:(EaseMessageViewController *)viewController
+                                    messageModel:(id<IMessageModel>)messageModel;
+
+/**
+ * 判断消息是否为表情消息
+ */
+- (EaseEmotion*)emotionURLFormessageViewController:(EaseMessageViewController *)viewController
+                                   messageModel:(id<IMessageModel>)messageModel;
+
+/**
+ * 获取表情
+ */
+- (NSArray*)emotionFormessageViewController:(EaseMessageViewController *)viewController;
+
+/**
+ * 获取发送表情消息的扩展字段
+ */
+- (NSDictionary*)emotionExtFormessageViewController:(EaseMessageViewController *)viewController
+                                        easeEmotion:(EaseEmotion*)easeEmotion;
 
 @end
 
