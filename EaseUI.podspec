@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'EaseUI'
-  spec.version      = '1.0.0'
+  spec.version      = '0.9.0'
   spec.license      = 'MIT'
   spec.summary      = 'EaseMob UI Kit'
   spec.homepage     = 'https://github.com/lizilong1989/easeui-ios-cocoapods-test'
