@@ -10,10 +10,6 @@
 
 #import "EaseMob.h"
 
-@interface NSObject ()<IChatManagerDelegate>
-
-@end
-
 @implementation NSObject (EaseMob)
 
 - (void)registerEaseMobLiteNotification
@@ -32,18 +28,14 @@
     [[EaseMob sharedInstance].chatManager removeDelegate:self];
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
     
-#if ENABLE_CALL
     [[EaseMob sharedInstance].callManager removeDelegate:self];
     [[EaseMob sharedInstance].callManager addDelegate:self delegateQueue:nil];
-#endif
 }
 
 - (void)unregisterEaseMobNotification
 {
     [[EaseMob sharedInstance].chatManager removeDelegate:self];
-#if ENABLE_CALL
     [[EaseMob sharedInstance].callManager removeDelegate:self];
-#endif
 }
 
 @end
